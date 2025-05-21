@@ -7,29 +7,39 @@
     <link rel="stylesheet" href="sba316.css" />
   </head>
   <body>
-    
-    <form class="form">
+    <div class="main-div">
       <h2>Kids Information</h2>
-      <div class="container">
+      <form class="form">
         <label for="fName">Child's first Name</label>
         <input required type="text" placeholder="First Name" />
         <label for="lName">Child's last name</label>
         <input required type="text" placeholder="Last Name" />
         <label for="email">Your email address</label>
         <input required type="email" placeholder="Email" />
-        <label for="dateOfBirth">Child's date of birth</label>
-        <input required type="date" placeholder="Date of birth" />
+        <label for="age">How old is your child?</label>
+        <input
+          id="age"
+          required
+          type="number"
+          placeholder="Age"
+          min="1"
+          max="100"
+        />
         <label for="kids activity level">How active is your child?</label>
         <select required name="Kids Activity Level">
           <option disabled selected hidden>Please select one</option>
-          <option value="hyper">too hyperactive</option>
-          <option value="needsEnergy">needs to be hyped up</option>
-          <option value="needsMoreMotivation">need more motivation</option>
+          <option value="hyper">Too Hyperactive</option>
+          <option value="needsEnergy">Needs to be Hyped Up</option>
+          <option value="needsMoreMotivation">Needs more Motivation</option>
         </select>
-      </div>
-      <button class="button">Submit</button>
-    </form>
-    <audio src="https://www.youtube.com/watch?v=zuMqCaUMbOs&list=PPSV"></audio>
+        <button type="submit" class="button">Submit</button>
+      </form>
+      
+    </div>
+    <h2 id="hide" class="hidden">This should appear</h2>
+    <audio src="https://www.youtube.com/watch?v=zuMqCaUMbOs&list=PPSV">
+      Meditation music
+    </audio>
 
     <script src="sba316.js"></script>
   </body>
