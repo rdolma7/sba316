@@ -3,27 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Financial Projection for Kids</title>
+    <title>Kids Therapy</title>
     <link rel="stylesheet" href="sba316.css" />
   </head>
   <body>
-    <form>
+    
+    <form class="form">
       <h2>Kids Information</h2>
-      <label for="fName">Child's first Name</label>
-      <input required type="text" placeholder="First Name" />
-      <label for="lName">Child's last name</label>
-      <input required type="text" placeholder="Last Name" /> 
-      <label for="email">Your email address</label>
-      <input required type="email" placeholder="Email" /> 
-      <label for="dateOfBirth">Child's date of birth</label>
-      <input required type="date" placeholder="Date of birth" />  
-      <label for="kids activity level">How active is your child?</label>
-      <select required name="Kids Activity Level">
-        <option disabled selected hidden>Please select one</option>
-        <option value="hyper">too hyperactive</option>
-        <option value="needsEnergy">needs to be hyped up</option>
-        <option value="needsMoreMotivation">need more motivation</option>
-      </select>
+      <div class="container">
+        <label for="fName">Child's first Name</label>
+        <input required type="text" placeholder="First Name" />
+        <label for="lName">Child's last name</label>
+        <input required type="text" placeholder="Last Name" />
+        <label for="email">Your email address</label>
+        <input required type="email" placeholder="Email" />
+        <label for="dateOfBirth">Child's date of birth</label>
+        <input required type="date" placeholder="Date of birth" />
+        <label for="kids activity level">How active is your child?</label>
+        <select required name="Kids Activity Level">
+          <option disabled selected hidden>Please select one</option>
+          <option value="hyper">too hyperactive</option>
+          <option value="needsEnergy">needs to be hyped up</option>
+          <option value="needsMoreMotivation">need more motivation</option>
+        </select>
+      </div>
+      <button class="button">Submit</button>
     </form>
     <audio src="https://www.youtube.com/watch?v=zuMqCaUMbOs&list=PPSV"></audio>
 
