@@ -1,22 +1,50 @@
 let form = document.querySelector(".form");
 let mainDiv = document.querySelector(".main-div");
 let hiddenText = document.querySelector("#hide");
-let video = document.querySelector(".video")
+let video = document.querySelector(".video");
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  let activityStatus= form.elements["Kids Activity Level"].value
-  // console.log(activityStatus)
-  if(activityStatus === "hyper"){
-    video.src = "https://www.youtube.com/embed/zuMqCaUMbOs?si=t66NaRIJJkNOZ4td&autoplay=1"
-  }else if(activityStatus ==="needsEnergy"){
-    video.src="https://www.youtube.com/embed/ZlDeUVvtsZ4?si=ADg8kfxNgmJRyTQV&autoplay=1"
-  }else if(activityStatus==="motivation"){
-    video.src="https://www.youtube.com/embed/Ud_eeFkzH4w?si=DENuQ2LKLVSSkxqw&autoplay=1"
+  let activityStatus = form.elements["Kids Activity Level"].value;
+
+  console.log(activityStatus);
+  if (activityStatus === "hyper") {
+    video.src =
+      "https://www.youtube.com/embed/zuMqCaUMbOs?si=t66NaRIJJkNOZ4td&autoplay=1";
+  } else if (activityStatus === "needsEnergy") {
+    video.src =
+      "https://www.youtube.com/embed/ZlDeUVvtsZ4?si=ADg8kfxNgmJRyTQV&autoplay=1";
+  } else if (activityStatus === "motivation") {
+    video.src =
+      "https://www.youtube.com/embed/huTTxXPj2gY?si=Pb1ITJYFPNf6Vj3p&autoplay=1";
   }
-  video.style.display = "block"
-  mainDiv.style.display = "none"
-  return
-  let age = form.elements["age"].value
+  video.style.display = "block";
+  mainDiv.style.display = "none";
+  // let buttonDiv = document.createElement("div");
+  let hideBtn = document.createElement("button");
+
+  // let pauseBtn = document.createElement("button");
+  hideBtn.className = "hide";
+  // pauseBtn.className = "pause";
+  hideBtn.textContent="CLOSE"
+  // pauseBtn.textContent="Pause"
+  // buttonDiv.appendChild(playBtn);
+  // buttonDiv.appendChild(pauseBtn);
+  document.body.appendChild(hideBtn);
+  hideBtn.addEventListener("click", (event) => {
+    console.log("click")
+    if (event.target.className === "hide") {
+      console.log("hasClassName===hide")
+      console.log(video)
+      document.body.removeChild(video)
+      document.body.removeChild(hideBtn)
+      let message=document.createElement("h1")
+    message.innerText="I HOPE THIS HELPED! Have a great day:)"
+    document.body.prepend(message)
+    } 
+    
+  });
+  return;
+  let age = form.elements["age"].value;
   let validationResult = validate(age);
   if (validationResult === false) {
     window.alert("You are too old for this service");
@@ -28,8 +56,6 @@ form.addEventListener("submit", (event) => {
   console.log("validated");
   mainDiv.classList.add("hidden");
   hiddenText.classList.remove("hidden");
-
-  
 });
 
 let validate = (age) => {
@@ -38,8 +64,8 @@ let validate = (age) => {
     return false;
   }
   if (childAge > 18) {
-  let dob=document.querySelector("input[id=age]")
-window.alert("dob")
+    let dob = document.querySelector("input[id=age]");
+    window.alert("dob");
   }
   return true;
 };
@@ -56,5 +82,4 @@ let m;
 
 // function validate(){}  //function declaration
 
-// let validate = function(){} //function expression
-
+// let validate = function(){} //function expressio
