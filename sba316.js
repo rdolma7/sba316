@@ -9,7 +9,7 @@ let validate = (age) => {
     return false;
   }
   if (childAge > 18) {
-    return false
+    return false;
   }
   return true;
 };
@@ -23,16 +23,13 @@ form.addEventListener("submit", (event) => {
   let validationResult = validate(age);
   if (validationResult === false) {
     alert("You are too old for this service");
-   window.location.reload();
-   return
-  } 
-
+    window.location.reload();
+    return;
+  }
 
   console.log("validated");
- 
-  // hiddenText.classList.remove("hidden");
 
-  let activityStatus = form.elements["Your Activity Level"].value;
+  let activityStatus = form.elements["Your Child's Activity Level"].value;
 
   console.log(activityStatus);
   if (activityStatus === "hyper") {
@@ -47,16 +44,11 @@ form.addEventListener("submit", (event) => {
   }
   video.style.display = "block";
   mainDiv.style.display = "none";
-  // let buttonDiv = document.createElement("div");
   let hideBtn = document.createElement("button");
 
-  // let pauseBtn = document.createElement("button");
   hideBtn.className = "hide";
-  // pauseBtn.className = "pause";
+
   hideBtn.textContent = "CLOSE";
-  // pauseBtn.textContent="Pause"
-  // buttonDiv.appendChild(playBtn);
-  // buttonDiv.appendChild(pauseBtn);
   hideBtn.addEventListener("click", (event) => {
     console.log("click");
     if (event.target.className === "hide") {
@@ -64,25 +56,28 @@ form.addEventListener("submit", (event) => {
       console.log(video);
       document.body.removeChild(video);
       document.body.removeChild(hideBtn);
+      let factsAndMessagediv= document.createElement("div")
+      let facts = document.getElementsByClassName("facts")[0];
+      console.log(facts)
+      let textArray = [
+        "It Can Improve Physical and Emotional Well-Being",
+        "It Can Enhance Communication and Socialization Skills",
+        "It Can Benefit a Wide Range of Individuals",
+      ];
+      for (let i = 0; i < 3; i++) {
+        let newli = document.createElement("li")
+        newli.textContent= textArray[i]
+        facts.appendChild(newli)
+      }
       let message = document.createElement("h1");
       message.innerText = "I HOPE THIS HELPED! Have a great day:)";
-      document.body.prepend(message);
+      factsAndMessagediv.appendChild(facts)
+      factsAndMessagediv.appendChild(message)
+      facts.parentNode.style.display= "flex"
+      facts.parentNode.style.flexDirection= "column"
+      document.body.prepend(factsAndMessagediv);
     }
   });
   document.body.appendChild(hideBtn);
   return;
 });
-
-let m;
-//child has to be under 18 for the application to suggest any sort of therapy
-
-// let button= document.querySelector(".button")
-// button.addEventListener("submit", (event)=>{
-//     event.preventDefault();
-// console.log("test")
-// })
-// console.log('testGlobalScope')
-
-// function validate(){}  //function declaration
-
-// let validate = function(){} //function expressio
