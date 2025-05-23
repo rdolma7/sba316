@@ -1,10 +1,38 @@
 let form = document.querySelector(".form");
 let mainDiv = document.querySelector(".main-div");
-let hiddenText = document.querySelector("#hide");
+let hiddenText = document.getElementById("hide");
 let video = document.querySelector(".video");
+
+let validate = (age) => {
+  let childAge = Number(age);
+  if (isNaN(childAge)) {
+    return false;
+  }
+  if (childAge > 18) {
+    return false
+  }
+  return true;
+};
+
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  let activityStatus = form.elements["Kids Activity Level"].value;
+
+  console.log(mainDiv);
+  let age = form.elements["age"].value;
+  console.log(age);
+  let validationResult = validate(age);
+  if (validationResult === false) {
+    alert("You are too old for this service");
+   window.location.reload();
+   return
+  } 
+
+
+  console.log("validated");
+ 
+  // hiddenText.classList.remove("hidden");
+
+  let activityStatus = form.elements["Your Activity Level"].value;
 
   console.log(activityStatus);
   if (activityStatus === "hyper") {
@@ -25,50 +53,25 @@ form.addEventListener("submit", (event) => {
   // let pauseBtn = document.createElement("button");
   hideBtn.className = "hide";
   // pauseBtn.className = "pause";
-  hideBtn.textContent="CLOSE"
+  hideBtn.textContent = "CLOSE";
   // pauseBtn.textContent="Pause"
   // buttonDiv.appendChild(playBtn);
   // buttonDiv.appendChild(pauseBtn);
-  document.body.appendChild(hideBtn);
   hideBtn.addEventListener("click", (event) => {
-    console.log("click")
+    console.log("click");
     if (event.target.className === "hide") {
-      console.log("hasClassName===hide")
-      console.log(video)
-      document.body.removeChild(video)
-      document.body.removeChild(hideBtn)
-      let message=document.createElement("h1")
-    message.innerText="I HOPE THIS HELPED! Have a great day:)"
-    document.body.prepend(message)
-    } 
-    
+      console.log("hasClassName===hide");
+      console.log(video);
+      document.body.removeChild(video);
+      document.body.removeChild(hideBtn);
+      let message = document.createElement("h1");
+      message.innerText = "I HOPE THIS HELPED! Have a great day:)";
+      document.body.prepend(message);
+    }
   });
+  document.body.appendChild(hideBtn);
   return;
-  let age = form.elements["age"].value;
-  let validationResult = validate(age);
-  if (validationResult === false) {
-    window.alert("You are too old for this service");
-    window.location.reload();
-  } else {
-    let body = document.body;
-    body = "";
-  }
-  console.log("validated");
-  mainDiv.classList.add("hidden");
-  hiddenText.classList.remove("hidden");
 });
-
-let validate = (age) => {
-  let childAge = Number(age.value);
-  if (isNaN(childAge)) {
-    return false;
-  }
-  if (childAge > 18) {
-    let dob = document.querySelector("input[id=age]");
-    window.alert("dob");
-  }
-  return true;
-};
 
 let m;
 //child has to be under 18 for the application to suggest any sort of therapy
