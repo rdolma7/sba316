@@ -37,4 +37,8 @@ body{
 .video{
     display: none;
 }
-.
+.facts{
+    font-size: 35px;
+    color: rgb(187, 34, 174);
+    border: 1px solid black;
+}

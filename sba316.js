@@ -60,9 +60,9 @@ form.addEventListener("submit", (event) => {
       let facts = document.getElementsByClassName("facts")[0];
       console.log(facts)
       let textArray = [
-        "It Can Improve Physical and Emotional Well-Being",
-        "It Can Enhance Communication and Socialization Skills",
-        "It Can Benefit a Wide Range of Individuals",
+        "Therapy Can Improve Physical and Emotional Well-Being",
+        "Therapy Can Enhance Communication and Socialization Skills",
+        "Therapy Can Benefit a Wide Range of Individuals",
       ];
       for (let i = 0; i < 3; i++) {
         let newli = document.createElement("li")
