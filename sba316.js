@@ -3,6 +3,9 @@ let mainDiv = document.querySelector(".main-div");
 let hiddenText = document.getElementById("hide");
 let video = document.querySelector(".video");
 
+const node = document.getElementById("clone");
+const clone = node.cloneNode(false);
+
 let validate = (age) => {
   let childAge = Number(age);
   if (isNaN(childAge)) {
@@ -22,7 +25,7 @@ form.addEventListener("submit", (event) => {
   console.log(age);
   let validationResult = validate(age);
   if (validationResult === false) {
-    alert("You are too old for this service");
+    window.alert("You are too old for this service");
     window.location.reload();
     return;
   }
@@ -44,6 +47,7 @@ form.addEventListener("submit", (event) => {
   }
   video.style.display = "block";
   mainDiv.style.display = "none";
+
   let hideBtn = document.createElement("button");
 
   hideBtn.className = "hide";
@@ -81,3 +85,4 @@ form.addEventListener("submit", (event) => {
   document.body.appendChild(hideBtn);
   return;
 });
+
